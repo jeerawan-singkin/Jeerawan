@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShelf</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Book Management</div>
+    </nav>
+
+    <div class="main-content">
+        <h1>Welcome to BookShelf</h1>
+        <p>Your one-stop destination for discovering and managing books.</p>
+        
+        <a th:href="@{'/authors'}" class="button">Explore Authors</a>
+        <a th:href="@{'/genres'}" class="button">Explore Genres</a>
+        <a th:href="@{'/books'}" class="button">Explore Books</a>
+    </div>
+</body>
+</html>

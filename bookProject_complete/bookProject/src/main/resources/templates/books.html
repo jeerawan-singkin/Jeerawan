@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>All Books</h1>
+
+    <form action="/books/search" method="get">
+        <label for="searchTerm">Search by ID or Title:</label>
+        <input type="text" name="searchTerm" id="searchTerm" placeholder="Enter ID or Title" />
+    
+        <button type="submit">Search</button>
+    </form>
+    
+    <!-- Filter form for genres -->
+    <form action="/books/filter" method="get">
+        <label for="genre">Filter by Genre:</label>
+        <select name="genreId" id="genre">
+            <option value="">-- Select Genre --</option>
+            <option value="0" th:selected="${selectedGenreId == null}">All Genres</option>
+            <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"
+                th:selected="${selectedGenreId == genre.id}"></option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Published Date</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${books}">
+                <td>
+                    <!-- Display Book Cover Image (if available) -->
+                    <div th:if="${book.image != null}">
+                        <img th:src="'data:image/jpeg;base64,' + ${book.base64Image}"
+                             alt="Book Cover" class="book-image" />
+                    </div>
+                </td>
+                <td th:text="${book.id}"></td>
+                <td>
+                    <a th:href="@{/books/{id}(id=${book.id})}" th:text="${book.title}"></a>
+                </td>
+                <td th:text="${book.author.name}"></td>
+                <td th:text="${book.isbn}"></td>
+                <td th:text="${book.publishedDate}"></td>
+                <td th:text="${book.genre.name}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="pagination">
+        <a th:href="@{/books(page=${currentPage - 1})}" th:if="${currentPage > 0}">&laquo; Previous</a>
+        <span th:text="'Page ' + ${currentPage + 1} + ' of ' + ${totalPages}"></span>
+        <a th:href="@{/books(page=${currentPage + 1})}" th:if="${currentPage + 1 < totalPages}">Next &raquo;</a>
+    </div>
+
+    <a th:href="@{/}">Home</a>
+</body>
+</html>

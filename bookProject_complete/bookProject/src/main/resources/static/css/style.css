@@ -1,0 +1,185 @@
+/* Global styles */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #F5F6F1;
+    color: #3d3d3d;
+    margin: 0;
+    padding: 20px;
+    text-align: center; /* Center text alignment for all text */
+}
+
+/* Header styles */
+h1 {
+    font-size: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+/* Centering the form */
+form {
+    justify-content: center;
+    display: flex;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+input[type="text"], select {
+    padding: 8px;
+    margin-right: 10px; /* Space between input and button */
+    border: 1px solid #b0b0b0;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #979082;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #010a71;
+}
+
+/* Table styles */
+/* Table container styling */
+.table {
+    width: 100%; /* Full width for better control */
+    border-collapse: collapse; /* Removes space between borders */
+    table-layout: fixed; /* Fixed layout helps manage cell sizing */
+    margin: 20px auto; /* Centered horizontally with margin */
+}
+
+/* Table header and data cell styling */
+.table th, .table td {
+    padding: 8px; /* Reduced padding to decrease cell height */
+    text-align: left; /* Text alignment to the left */
+    border-bottom: 1px solid #ddd; /* Subtle bottom border for separation */
+    overflow: hidden; /* Prevents content from overflowing */
+    white-space: nowrap; /* Keeps content on a single line */
+    text-overflow: ellipsis; /* Adds an ellipsis for overflow text */
+}
+
+/* Reducing the line height to lower overall row height */
+.table th, .table td {
+    line-height: 1.2; /* Lower line height to reduce row height */
+    font-size: 14px; /* Optionally reduce font size for less space usage */
+}
+
+/* Hover effect styling */
+.table-hover tbody tr:hover {
+    background-color: #f5f5f5; /* Light grey background on hover */
+}
+
+/* Stripe effect styling */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9; /* Zebra striping effect */
+}
+
+/* Styling for responsive image display */
+.author-image img {
+    width: 100px; /* Fixed size for consistency */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular images */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.25); /* Adding some shadow for depth */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    form, input[type="text"], button {
+        width: 100%;
+        display: block;
+        margin: 10px 0; /* Stacking inputs and button vertically on small screens */
+    }
+
+    table {
+        width: 100%;
+    }
+}
+/* Overall body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background-color: #F5F6F1;
+    color: #333;
+}
+
+/* Header styling */
+h1 {
+    color: #515151;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+select, input[type="date"] {
+    padding: 8px;
+    border: 1px solid #b0b0b0;
+    border-radius: 4px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #979082;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #666666;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #860000;
+    text-align: left;
+}
+
+th {
+    background-color: #979082;
+    color: white;
+}
+
+tr:hover {
+    background-color: #eaeaea;
+}
+
+/* Image styling within table */
+img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Link styling */
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+

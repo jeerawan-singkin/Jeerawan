@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <h1>
+        Books for Author: <span th:text="${author.name}"></span>
+    </h1>
+    
+    <!-- Filter by Genre Form -->
+	<form th:action="@{'/authors/' + ${author.id} + '/books/genre'}"
+		method="get">
+		<label for="genreId">Filter by Genre:</label> <select id="genreId"
+			name="genreId">
+			<option value="">-- All Genres --</option>
+			<!-- Add this for all genres -->
+			<option th:each="genre : ${genres}" th:value="${genre.id}"
+				th:text="${genre.name}" th:selected="${param.genreId == genre.id}"></option>
+		</select>
+		<button type="submit">Filter</button>
+	</form>
+
+
+	<!-- Filter by Published Date Form -->
+    <form th:action="@{'/authors/' + ${author.id} + '/books/publishedDate'}" method="get">
+        <label for="publishedDate">Filter by Published Date:</label>
+        <input type="date" id="publishedDate" name="publishedDate">
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Books Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Genre</th>
+                <th>Published Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}"></td>
+
+                <!-- Display Book Cover Image (if available) -->
+                <td>
+                    <div th:if="${book.base64Image != null}">
+                        <img th:src="'data:image/jpeg;base64,' + ${book.base64Image}"
+                             alt="Book Cover" style="width: 100px; height: 150px;" />
+                    </div>
+                </td>
+
+                <td>
+                    <a th:href="@{/books/{id}(id=${book.id})}" th:text="${book.title}"></a>
+                </td>
+                
+                <td th:text="${book.isbn}"></td>
+                <td th:text="${book.genre.name}"></td>
+                <td th:text="${book.publishedDate}"></td>
+                <td>
+                    <a th:href="@{'/authors/' + ${author.id} + '/books/edit/' + ${book.id}}">Edit</a>
+                    | 
+                    <a th:href="@{'/authors/' + ${author.id} + '/books/delete/' + ${book.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Links -->
+    <a th:href="@{'/authors/' + ${author.id} + '/books/new'}">Add New Book for This Author</a>
+    <br>
+    <a th:href="@{'/authors'}">View All Authors</a>
+    <br>
+    <a th:href="@{'/books'}">View All Books</a>
+    <br>
+    <a th:href="@{'/'}">Home</a>
+    <br>
+</body>
+</html>

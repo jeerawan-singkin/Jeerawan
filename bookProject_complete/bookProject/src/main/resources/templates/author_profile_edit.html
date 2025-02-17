@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Profile</title>
+    <link rel="stylesheet" th:href="@{/css/Edit Profile.css}">
+</head>
+<body>
+    <h1>Edit Profile</h1>
+
+    <form th:action="@{/authors/{authorId}/profile(authorId=${author.id})}"
+          method="post" enctype="multipart/form-data">
+        <!-- Current bio -->
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" rows="5" maxlength="20000" th:text="${profile.bio}"></textarea>
+        <br>
+
+        <!-- Image upload field -->
+        <label for="imageFile">Profile Image:</label>
+        <input type="file" id="imageFile" name="imageFile" accept="image/*" />
+        <br>
+
+        <div th:if="${base64Image != null}">
+            <p>Current Profile Image:</p>
+            <img th:src="'data:image/jpeg;base64,' + ${base64Image}" alt="Profile Image" style="width: 400px; height: 400px;" />
+        </div>
+        <br>
+
+        <button type="submit">Save Changes</button>
+        <a th:href="@{/authors/{authorId}/profile(authorId=${author.id})}">Cancel</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Genres</title>
+    <link rel="stylesheet" th:href="@{/css/genres.css}">
+</head>
+<body>
+    <h1>Genres</h1>
+	
+    <form action="#" method="get">
+        <input type="text" name="search" placeholder="Search genres" />
+        <button type="submit"class="btn btn-primary" >Search</button>
+    </form>
+
+    <div th:if="${param.error}">
+        <p th:text="${param.error}" style="color: red;"></p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="genre : ${genres}">
+                <td th:text="${genre.id}"></td>
+                <td th:text="${genre.name}"></td>
+                <td>
+                    <a th:href="@{'/genres/edit/' + ${genre.id}}">Edit</a>
+                    <a th:href="@{'/genres/delete/' + ${genre.id}}"
+                       onclick="return confirm('Are you sure you want to delete this genre? This will also delete all books associated with this genre.');">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/genres/new}" class="add-genre">Add New Genre</a>
+    <br>
+    <a th:href="@{/}" class="home-link" >Home</a>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* General body styling for background and font */
+body {
+    background-color: #f9f9f3; /* Light neutral background */
+    font-family: Arial, sans-serif;
+    text-align: center; /* Center elements */
+    margin: 0;
+    padding: 20px; /* Add some padding for spacing */
+}
+
+/* Styling for the heading */
+h1 {
+    font-size: 2.5rem;
+    color: #5a5a5a; /* Grey color for the heading */
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+/* Center the search form */
+form {
+    display: inline-block; /* Make the form inline to center it */
+    margin-bottom: 30px;
+}
+
+/* Styling the search input */
+form input[type="text"] {
+    padding: 15px 20px; /* Larger padding for the search box */
+    width: 350px; /* Set the width for the input field */
+    font-size: 1.2rem; /* Adjust font size */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 10px 0 0 10px; /* Rounded corners on the left */
+    outline: none; /* Remove the outline on focus */
+}
+
+/* Styling the search button */
+form button {
+    padding: 15px 30px; /* Adjust padding to match the input size */
+    background-color: #9e9a89; /* Neutral background for the button */
+    color: white; /* White text */
+    font-size: 1.2rem; /* Font size for the button */
+    border: none; /* Remove the border */
+    border-radius: 0 10px 10px 0; /* Rounded corners on the right */
+    cursor: pointer; /* Show pointer on hover */
+    outline: none; /* Remove outline */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for the button */
+form button:hover {
+    background-color: #7b7667; /* Darker background color on hover */
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #C7C7BB;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+td {
+    background-color: #f9f9f9;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover td {
+    background-color: #d7d5d5;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Add New Genre and Home Links */
+.add-genre, .home-link {
+    display: block;
+    width: 180px; /* Set width to make buttons consistent */
+    text-align: center;
+    padding: 12px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #959889; /* Green background */
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    position: fixed;
+    left: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.add-genre {
+    bottom: 80px; /* Place above the Home button */
+    background: linear-gradient(135deg, #959889, #a4aa8c99); /* Gradient for modern look */
+}
+
+
+.home-link {
+    bottom: 20px; /* Place at the very bottom */
+    background: linear-gradient(135deg, #959889, #a4aa8c99); /* Gradient for modern look */
+}
+
+.add-genre:hover, .home-link:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+    background-position: right center; /* Smooth color transition on hover */
+}
+
+.add-genre:hover {
+    background-color: #959889; /* Slightly darker green */
+}
+
+/* Hover effects for Home */
+.home-link:hover {
+    background-color: #d5c7c7; /* Slightly darker red */
+}

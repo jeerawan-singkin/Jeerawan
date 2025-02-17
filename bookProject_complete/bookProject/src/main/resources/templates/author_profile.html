@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Author Profile</title>
+<link rel="stylesheet" th:href="@{/css/profile-book-style.css}">
+</head>
+<body>
+	<h1>
+		Profile of <span th:text="${author.name}"></span>
+	</h1>
+
+	<!-- Display Profile Information -->
+	<div>
+		<h2>Bio:</h2>
+		<p th:text="${profile.bio}"></p>
+
+		<h2>Profile Image:</h2>
+		<div>
+			<img th:if="${base64Image != null}"
+				th:src="'data:image/jpeg;base64,' + ${base64Image}"
+				alt="Profile Image" style="width: 400px; height: 400px;" />
+		</div>
+	</div>
+
+	<!-- Edit Profile Link -->
+	<a th:href="@{'/authors/' + ${author.id} + '/profile/edit'}">Edit
+		Profile</a>
+
+	<!-- Link back to authors list -->
+	<a th:href="@{/authors}">Back to Authors</a>
+</body>
+</html>
